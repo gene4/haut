@@ -15,7 +15,7 @@ export default function Home({ hero }) {
             <motion.section
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.75, ease: "easeOut" }}
                 exit={{ opacity: 0 }}
                 className={styles.hero_container}
             >

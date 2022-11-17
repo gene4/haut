@@ -1,17 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import PortableText from "react-portable-text";
 import { client, urlFor } from "../../client";
-import { useEffect } from "react";
 import styles from "../../styles/Project.module.css";
-import Aos from "aos";
 import { motion } from "framer-motion";
-import "aos/dist/aos.css";
 
 const Project = ({ project }) => {
-    useEffect(() => {
-        Aos.init();
-    }, []);
-
+    console.log("render");
     return (
         <motion.article
             initial={{ opacity: 0 }}
@@ -48,9 +42,11 @@ const Project = ({ project }) => {
                         normal: (props) => <p data-aos="fade-up" {...props} />,
                         image: (props) => (
                             <figure>
-                                <img
+                                <motion.img
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
                                     alt={project.title}
-                                    data-aos="fade-up"
+                                    // data-aos="fade-up"
                                     src={urlFor(props).url()}
                                 />
                             </figure>

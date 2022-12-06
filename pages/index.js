@@ -7,21 +7,20 @@ import styles from "../styles/Home.module.css";
 
 export default function Home({ main, projects, category }) {
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+            style={{ position: "absolute", left: 0, top: 0 }}
+        >
             <Head>
                 <title>HAUT</title>
                 <meta name="description" content="HAUT" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <motion.section
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.75, ease: "easeOut" }}
-                style={{ position: "absolute", left: 0, top: 0 }}
-                className={styles.hero_container}
-            >
+            <section className={styles.hero_container}>
                 <a rel="noreferrer" target={"_blank"} href={main[0].link}>
                     <video
                         id="video"
@@ -37,7 +36,7 @@ export default function Home({ main, projects, category }) {
                         Your browser does not support the video tag.
                     </video>
                 </a>
-            </motion.section>
+            </section>
 
             <section id="projects" className={styles.grid}>
                 {projects &&
@@ -79,7 +78,7 @@ export default function Home({ main, projects, category }) {
                             );
                         })}
             </section>
-        </>
+        </motion.div>
     );
 }
 

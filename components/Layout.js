@@ -8,20 +8,21 @@ import { useRouter } from "next/router";
 function Layout({ setCategory }) {
     const [isOpen, setOpen] = useState(false);
     const router = useRouter();
-
+    console.log(router.pathname);
     const handleClick = (category) => {
         router.pathname !== "/" && router.push("/#projects");
         setCategory(category);
+
+        if (router.pathname !== "/") {
+            setOpen(false);
+        }
     };
 
     return (
         <>
             <header
                 style={{
-                    color:
-                        router.pathname === "/projects/[slug]"
-                            ? "black"
-                            : "#deedff",
+                    color: router.pathname === "/" && "#deedff",
                 }}
             >
                 <Hamburger
@@ -31,7 +32,9 @@ function Layout({ setCategory }) {
                     size={48}
                     label="Show menu"
                 />
-                <Link href="/">HAUT</Link>
+                <Link href="/">
+                    <a>HAUT</a>
+                </Link>
             </header>
             {isOpen && (
                 <motion.nav
@@ -43,7 +46,7 @@ function Layout({ setCategory }) {
                     }}
                     exit={{ opacity: 0 }}
                 >
-                    <div>
+                    <motion.div>
                         <button onClick={() => handleClick("")}>all</button>
                         <button onClick={() => handleClick("installation")}>
                             installations
@@ -57,44 +60,34 @@ function Layout({ setCategory }) {
                         <button onClick={() => handleClick("music")}>
                             music
                         </button>
-                    </div>
-
-                    <motion.a
-                        animate={{ y: ["15%", "0%", "-15%"] }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                        }}
-                        href="mailto:hautonhaut@gmail.com"
-                    >
-                        email
-                    </motion.a>
-                    <motion.a
-                        animate={{ y: ["15%", "0%", "-15%"] }}
-                        transition={{
-                            duration: 4,
-                            repeat: Infinity,
-                            delay: 0.1,
-                        }}
-                        href="https://soundcloud.com/xhautx"
-                        rel="noreferrer"
-                        target={"_blank"}
-                    >
-                        soundcloud
-                    </motion.a>
-                    <motion.a
-                        animate={{ y: ["15%", "0%", "-15%"] }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                            delay: 0.05,
-                        }}
-                        href="https://www.instagram.com/hautonhaut/"
-                        rel="noreferrer"
-                        target={"_blank"}
-                    >
-                        instagram
-                    </motion.a>
+                    </motion.div>
+                    <motion.div>
+                        <a href="mailto:hautonhaut@gmail.com">email</a>
+                        <a
+                            href="https://soundcloud.com/xhautx"
+                            rel="noreferrer"
+                            target={"_blank"}
+                        >
+                            soundcloud
+                        </a>
+                        <a
+                            href="https://www.instagram.com/hautonhaut/"
+                            rel="noreferrer"
+                            target={"_blank"}
+                        >
+                            instagram
+                        </a>
+                    </motion.div>
+                    <motion.div>
+                        <Link href={"/imprint"}>
+                            <a onClick={() => setOpen(false)}>imprint</a>
+                        </Link>
+                        <Link href={"/data-protection"}>
+                            <a onClick={() => setOpen(false)}>
+                                data protection
+                            </a>
+                        </Link>
+                    </motion.div>
                 </motion.nav>
             )}
         </>

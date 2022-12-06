@@ -1,13 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import { client, urlFor } from "../client";
-
 import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 export default function Home({ main, projects, category }) {
-    console.log(category);
     return (
         <>
             <Head>
@@ -15,6 +13,7 @@ export default function Home({ main, projects, category }) {
                 <meta name="description" content="HAUT" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
             <motion.section
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -23,23 +22,22 @@ export default function Home({ main, projects, category }) {
                 className={styles.hero_container}
             >
                 <a rel="noreferrer" target={"_blank"} href={main[0].link}>
-                    <motion.video
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.75, ease: "easeOut" }}
+                    <video
                         id="video"
                         autoPlay
                         muted
                         loop
+                        className={styles.video}
                     >
                         <source
                             src={`https://drive.google.com/uc?export=download&id=${main[0].videoId}`}
                             type="video/mp4"
                         />
                         Your browser does not support the video tag.
-                    </motion.video>
+                    </video>
                 </a>
             </motion.section>
+
             <section id="projects" className={styles.grid}>
                 {projects &&
                     projects

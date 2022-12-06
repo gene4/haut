@@ -1,7 +1,16 @@
 .container {
     background-color: var(--project-bg-color);
-    min-height: 100vh;
-    padding: 4rem 5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    height: 100vh;
+}
+
+.container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem !important;
+    padding-top: 7rem;
+    padding-left: 2rem;
 }
 
 .main div {
@@ -9,31 +18,56 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 2rem;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(72vh);
 }
 
-.main iframe {
-    height: 650px !important;
+.main div p {
+    margin: 0 !important;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.image {
+    width: 100%;
+    height: auto;
 }
 
 @media (max-width: 600px) {
     .container {
-        padding: 4rem 1.5rem;
+        padding: 8rem 1.5rem 1rem 1.5rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container h1 {
+        padding: 0;
     }
     .main div {
-        display: block;
+        padding: 0;
+        height: auto;
     }
-    .main img {
-        width: 100%;
-        height: 300px;
+
+    .playerWrapper {
+        height: 400px !important;
+    }
+
+    .gallery {
+        overflow-y: auto;
+    }
+
+    .gallery img {
+        padding: 1rem 0;
+        height: 350px !important;
         object-fit: cover;
-        object-position: center;
-    }
-
-    .main figure {
-        margin: 0 0 2.5rem 0;
-    }
-
-    .main iframe {
-        height: 270px !important;
     }
 }

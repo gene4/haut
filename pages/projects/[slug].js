@@ -5,7 +5,7 @@ import styles from "../../styles/Project.module.css";
 import { motion } from "framer-motion";
 
 const Project = ({ project }) => {
-    console.log("render");
+    // console.log(project.gallery);
     return (
         <motion.article
             initial={{ opacity: 0 }}
@@ -15,24 +15,8 @@ const Project = ({ project }) => {
             style={{ position: "absolute", left: 0, top: 0 }}
             className={styles.container}
         >
-            <header>
-                <h1>{project.title}</h1>
-            </header>
             <main className={styles.main}>
-                {project.vimeo && (
-                    <div className={styles.video_container} data-aos="fade-up">
-                        <iframe
-                            style={{ marginBottom: "2rem" }}
-                            title="vimeo-player"
-                            src={project.vimeo}
-                            height="480"
-                            width="100%"
-                            frameBorder="0"
-                            allowFullScreen
-                            allow="autoplay; encrypted-media"
-                        ></iframe>
-                    </div>
-                )}
+                <h1>{project.title}</h1>
 
                 <PortableText
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
@@ -46,7 +30,6 @@ const Project = ({ project }) => {
                                     initial={{ opacity: 0 }}
                                     whileInView={{ opacity: 1 }}
                                     alt={project.title}
-                                    // data-aos="fade-up"
                                     src={urlFor(props).url()}
                                 />
                             </figure>
@@ -54,6 +37,43 @@ const Project = ({ project }) => {
                     }}
                 />
             </main>
+            <div className={styles.gallery}>
+                {project.vimeo && (
+                    <div
+                        className={styles.playerWrapper}
+                        style={{
+                            // overflow: "hidden",
+                            height: "480px",
+                            width: "100%",
+                        }}
+                    >
+                        <iframe
+                            title="vimeo-player"
+                            src={project.vimeo}
+                            style={{
+                                overflow: "hidden",
+                                height: "480px",
+                                width: "100%",
+                            }}
+                            height="100%"
+                            width="100%"
+                            frameBorder="0"
+                            allowFullScreen
+                            allow="autoplay; encrypted-media"
+                        ></iframe>
+                    </div>
+                )}
+                {project.gallery.map(({ asset }) => {
+                    return (
+                        <img
+                            key={asset.url}
+                            alt={project.title}
+                            src={asset.url}
+                            className={styles.image}
+                        />
+                    );
+                })}
+            </div>
         </motion.article>
     );
 };
@@ -85,7 +105,11 @@ export async function getStaticProps({ params }) {
         title,
         vimeo,
         body,
-
+        gallery[]{
+            asset->{
+                url
+            }
+        }
       }`;
 
     const project = await client.fetch(query, { slug: params.slug });

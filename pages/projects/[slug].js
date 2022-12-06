@@ -63,16 +63,17 @@ const Project = ({ project }) => {
                         ></iframe>
                     </div>
                 )}
-                {project.gallery.map(({ asset }) => {
-                    return (
-                        <img
-                            key={asset.url}
-                            alt={project.title}
-                            src={asset.url}
-                            className={styles.image}
-                        />
-                    );
-                })}
+                {project.gallery &&
+                    project.gallery.map(({ asset }) => {
+                        return (
+                            <img
+                                key={asset.url}
+                                alt={project.title}
+                                src={asset.url}
+                                className={styles.image}
+                            />
+                        );
+                    })}
             </div>
         </motion.article>
     );

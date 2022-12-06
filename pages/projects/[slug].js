@@ -5,11 +5,11 @@ import styles from "../../styles/Project.module.css";
 import { motion } from "framer-motion";
 
 const Project = ({ project }) => {
-    // console.log(project.gallery);
     return (
         <motion.article
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             style={{ position: "absolute", left: 0, top: 0 }}
             className={styles.container}

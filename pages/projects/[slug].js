@@ -11,7 +11,6 @@ const Project = ({ project }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            exit={{ opacity: 0 }}
             style={{ position: "absolute", left: 0, top: 0 }}
             className={styles.container}
         >

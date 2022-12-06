@@ -18,7 +18,6 @@ export default function Home({ main, projects, category }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.75, ease: "easeOut" }}
-                exit={{ opacity: 0 }}
                 className={styles.hero_container}
             >
                 <a rel="noreferrer" target={"_blank"} href={main[0].link}>
@@ -59,7 +58,6 @@ export default function Home({ main, projects, category }) {
                                             duration: 1,
                                             ease: "easeOut",
                                         }}
-                                        exit={{ opacity: 0 }}
                                         className={styles.image_container}
                                     >
                                         <div className={styles.overlay} />

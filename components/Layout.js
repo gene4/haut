@@ -44,7 +44,6 @@ function Layout({ setCategory }) {
                         duration: 0.6,
                         ease: "easeOut",
                     }}
-                    exit={{ opacity: 0 }}
                 >
                     <motion.div>
                         <button onClick={() => handleClick("")}>all</button>

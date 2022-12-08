@@ -8,11 +8,11 @@ import styles from "../styles/Home.module.css";
 export default function Home({ main, projects, category }) {
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.75, ease: "easeOut" }}
-            style={{ position: "absolute", left: 0, top: 0 }}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // exit={{ opacity: 0 }}
+        // transition={{ duration: 0.75, ease: "easeOut" }}
+        // style={{ position: "absolute", left: 0, top: 0 }}
         >
             <Head>
                 <title>HAUT</title>

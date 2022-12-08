@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 function Layout({ setCategory }) {
     const [isOpen, setOpen] = useState(false);
     const router = useRouter();
-    console.log(router.pathname);
+
     const handleClick = (category) => {
         router.pathname !== "/" && router.push("/#projects");
         setCategory(category);

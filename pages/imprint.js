@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 function imprint() {
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // exit={{ opacity: 0 }}
+            // transition={{ duration: 1, ease: "easeOut" }}
+            // style={{ position: "absolute", left: 0, top: 0 }}
             className={styles.imprint}
-            style={{ position: "absolute", left: 0, top: 0 }}
         >
             <div>
                 <p>

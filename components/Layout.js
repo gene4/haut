@@ -22,7 +22,7 @@ function Layout({ setCategory }) {
         <>
             <header
                 style={{
-                    color: router.pathname === "/" && "#deedff",
+                    color: router.pathname === "/" ? "#deedff" : "black",
                 }}
             >
                 <Hamburger

@@ -6,6 +6,7 @@ import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 const Project = ({ project }) => {
+    console.log(project.youtubeID);
     return (
         <article className={styles.container}>
             <main className={styles.main}>
@@ -17,9 +18,9 @@ const Project = ({ project }) => {
                 />
             </main>
             <div className={styles.gallery}>
-                {project.vimeo && (
+                {project.youtubeID && (
                     <LiteYouTubeEmbed
-                        id={project.youtubeId}
+                        id={project.youtubeID}
                         title={project.title}
                     />
                 )}
@@ -64,7 +65,7 @@ export async function getStaticProps({ params }) {
     const query = `*[_type == "project" && slug.current == $slug][0]{
         _id,
         title,
-        vimeo,
+        youtubeID,
         body,
         gallery[]{
             asset->{

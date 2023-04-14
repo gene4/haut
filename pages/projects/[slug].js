@@ -2,7 +2,8 @@
 import PortableText from "react-portable-text";
 import { client } from "../../client";
 import styles from "../../styles/Project.module.css";
-import Vimeo from "@u-wave/react-vimeo";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 const Project = ({ project }) => {
     return (
@@ -17,7 +18,10 @@ const Project = ({ project }) => {
             </main>
             <div className={styles.gallery}>
                 {project.vimeo && (
-                    <Vimeo video={project.vimeo} responsive={true} />
+                    <LiteYouTubeEmbed
+                        id={project.youtubeId}
+                        title={project.title}
+                    />
                 )}
                 {project.gallery &&
                     project.gallery.map(({ asset }) => {

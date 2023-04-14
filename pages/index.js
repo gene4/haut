@@ -83,7 +83,7 @@ export default function Home({ main, projects, category }) {
 }
 
 export const getStaticProps = async () => {
-    const query = `*[_type == "project"] | order(_createdAt asc) {
+    const query = `*[_type == "project"] | order(order asc) {
   _id,
   title,
   mainImage,

@@ -9,7 +9,6 @@ const Project = ({ project }) => {
         <article className={styles.container}>
             <main className={styles.main}>
                 <h1>{project.title}</h1>
-
                 <PortableText
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
                     projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}

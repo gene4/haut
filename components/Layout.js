@@ -31,6 +31,7 @@ function Layout({ setCategory }) {
                     toggle={setOpen}
                     size={48}
                     label="Show menu"
+                    color={router.pathname === "/" ? "#deedff" : "black"}
                 />
                 <Link href="/">
                     <a>HAUT</a>

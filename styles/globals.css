@@ -41,9 +41,7 @@ header {
     z-index: 11;
     text-align: center;
     display: flex;
-    color: black;
     padding: 1rem 2rem;
-    animation: fadeIn 2s;
 }
 
 header a {
@@ -59,8 +57,6 @@ nav {
     align-items: center;
     top: 10rem;
     left: 3rem;
-    width: 100%;
-    mix-blend-mode: hard-light;
 }
 
 nav div {

@@ -20,6 +20,13 @@ html,
 body {
     padding: 0;
     margin: 0;
+    background-color: black;
+    background: linear-gradient(355deg, #1f1051, #000000);
+    background-size: 200% 300%;
+
+    -webkit-animation: AnimationName 1s ease infinite;
+    -moz-animation: AnimationName 1s ease infinite;
+    animation: AnimationName 1s ease infinite;
     scroll-behavior: smooth;
     font-family: "Space-Mono", -apple-system, BlinkMacSystemFont, Segoe UI,
         Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -66,12 +73,11 @@ nav div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     border-radius: 100%;
-    /* filter: invert(1); */
     box-shadow: rgba(255, 255, 255, 0.3) 0px 12px 28px 0px,
         rgba(255, 255, 255, 0.2) 0px 2px 4px 0px,
         rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-    background-color: rgba(72, 0, 0, 0.7);
 }
 
 nav div:nth-child(2) {
@@ -157,6 +163,40 @@ h1 {
 
 * {
     box-sizing: border-box;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 83% 0%;
+    }
+    50% {
+        background-position: 18% 100%;
+    }
+    100% {
+        background-position: 83% 0%;
+    }
+}
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 83% 0%;
+    }
+    50% {
+        background-position: 18% 100%;
+    }
+    100% {
+        background-position: 83% 0%;
+    }
+}
+@keyframes AnimationName {
+    0% {
+        background-position: 83% 0%;
+    }
+    50% {
+        background-position: 18% 100%;
+    }
+    100% {
+        background-position: 83% 0%;
+    }
 }
 
 @media (max-width: 600px) {

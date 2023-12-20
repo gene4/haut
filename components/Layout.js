@@ -23,8 +23,7 @@ function Layout({ setCategory }) {
             <header
                 style={{
                     color: router.pathname === "/" ? "#deedff" : "black",
-                }}
-            >
+                }}>
                 <Hamburger
                     rounded
                     toggled={isOpen}
@@ -34,7 +33,7 @@ function Layout({ setCategory }) {
                     color={router.pathname === "/" ? "#deedff" : "black"}
                 />
                 <Link href="/">
-                    <a>HAUT</a>
+                    <a>FÁ MARIA</a>
                 </Link>
             </header>
             {isOpen && (
@@ -44,9 +43,14 @@ function Layout({ setCategory }) {
                     transition={{
                         duration: 0.6,
                         ease: "easeOut",
-                    }}
-                >
-                    <motion.div>
+                    }}>
+                    <motion.div
+                        style={{
+                            backgroundColor:
+                                router.pathname === "/"
+                                    ? "transparent"
+                                    : "rgba(0, 0, 72, 0.7)",
+                        }}>
                         <button onClick={() => handleClick("")}>all</button>
                         <button onClick={() => handleClick("installation")}>
                             installations
@@ -61,24 +65,34 @@ function Layout({ setCategory }) {
                             music
                         </button>
                     </motion.div>
-                    <motion.div>
+                    <motion.div
+                        style={{
+                            backgroundColor:
+                                router.pathname === "/"
+                                    ? "transparent"
+                                    : "rgba(0, 0, 72, 0.7)",
+                        }}>
                         <a href="mailto:hautonhaut@gmail.com">email</a>
                         <a
                             href="https://soundcloud.com/xhautx"
                             rel="noreferrer"
-                            target={"_blank"}
-                        >
+                            target={"_blank"}>
                             soundcloud
                         </a>
                         <a
                             href="https://www.instagram.com/hautonhaut/"
                             rel="noreferrer"
-                            target={"_blank"}
-                        >
+                            target={"_blank"}>
                             instagram
                         </a>
                     </motion.div>
-                    <motion.div>
+                    <motion.div
+                        style={{
+                            backgroundColor:
+                                router.pathname === "/"
+                                    ? "transparent"
+                                    : "rgba(0, 0, 72, 0.7)",
+                        }}>
                         <Link href={"/imprint"}>
                             <a onClick={() => setOpen(false)}>imprint</a>
                         </Link>

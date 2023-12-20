@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { client, urlFor } from "../client";
@@ -27,8 +26,7 @@ export default function Home({ main, projects, category }) {
                         autoPlay
                         muted
                         loop
-                        className={styles.video}
-                    >
+                        className={styles.video}>
                         <source
                             src={`https://drive.google.com/uc?export=download&id=${main[0].videoId}`}
                             type="video/mp4"
@@ -50,8 +48,7 @@ export default function Home({ main, projects, category }) {
                             return (
                                 <Link
                                     key={project._id}
-                                    href={`/projects/${project.slug.current}`}
-                                >
+                                    href={`/projects/${project.slug.current}`}>
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
@@ -59,8 +56,7 @@ export default function Home({ main, projects, category }) {
                                             duration: 1,
                                             ease: "easeOut",
                                         }}
-                                        className={styles.image_container}
-                                    >
+                                        className={styles.image_container}>
                                         <div className={styles.overlay} />
                                         <div
                                             className={styles.photo}
@@ -68,8 +64,7 @@ export default function Home({ main, projects, category }) {
                                                 backgroundImage: `url(${urlFor(
                                                     project.mainImage
                                                 ).url()})`,
-                                            }}
-                                        >
+                                            }}>
                                             {" "}
                                         </div>
                                         <p>{project.title}</p>

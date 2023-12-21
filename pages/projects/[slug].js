@@ -6,7 +6,6 @@ import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 const Project = ({ project }) => {
-    console.log(project.youtubeID);
     return (
         <article className={styles.container}>
             <main className={styles.main}>

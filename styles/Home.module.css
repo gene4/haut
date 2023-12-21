@@ -81,6 +81,18 @@
     background-size: cover;
 }
 
+.bio_container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--project-bg-color);
+}
+
+.bio_content {
+    padding: 0 15rem;
+}
+
 .imprint div {
     padding: 0 15rem;
     backdrop-filter: blur(8px);

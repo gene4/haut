@@ -20,14 +20,21 @@ export default function Home({ main, projects, category }) {
             </Head>
 
             <section className={styles.hero_container}>
-                <video id="video" autoPlay muted loop className={styles.video}>
-                    <source
-                        src={`https://drive.google.com/uc?export=download&id=${main[0].videoId}`}
-                        type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                    <a rel="noreferrer" target={"_blank"} href={main[0].link} />
-                </video>
+                <a rel="noreferrer" target={"_blank"} href={main[0].link}>
+                    <video
+                        id="video"
+                        playsInline
+                        autoPlay
+                        muted
+                        loop
+                        className={styles.video}>
+                        <source
+                            src={`https://drive.google.com/uc?export=download&id=${main[0].videoId}`}
+                            type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
             </section>
 
             <section id="projects" className={styles.grid}>

@@ -72,6 +72,9 @@ function Layout({ setCategory }) {
                                     ? "transparent"
                                     : "rgba(0, 0, 72, 0.7)",
                         }}>
+                        <Link href={"/bio"}>
+                            <a onClick={() => setOpen(false)}>bio</a>
+                        </Link>
                         <a href="mailto:hautonhaut@gmail.com">email</a>
                         <a
                             href="https://soundcloud.com/xhautx"

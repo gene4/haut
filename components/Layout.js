@@ -43,35 +43,31 @@ function Layout({ setCategory }) {
                     transition={{
                         duration: 0.6,
                         ease: "easeOut",
+                    }}
+                    style={{
+                        backgroundColor:
+                            router.pathname === "/"
+                                ? "transparent"
+                                : "rgba(0, 0, 72, 0.7)",
                     }}>
-                    <motion.div
-                        style={{
-                            backgroundColor:
-                                router.pathname === "/"
-                                    ? "transparent"
-                                    : "rgba(0, 0, 72, 0.7)",
-                        }}>
+                    <div>
+                        projects:
                         <button onClick={() => handleClick("")}>all</button>
                         <button onClick={() => handleClick("installation")}>
+                            {" "}
                             installations
-                        </button>
+                        </button>{" "}
                         <button onClick={() => handleClick("dancePiece")}>
                             dance pieces
-                        </button>
+                        </button>{" "}
                         <button onClick={() => handleClick("movie")}>
                             movies
-                        </button>
+                        </button>{" "}
                         <button onClick={() => handleClick("music")}>
                             music
                         </button>
-                    </motion.div>
-                    <motion.div
-                        style={{
-                            backgroundColor:
-                                router.pathname === "/"
-                                    ? "transparent"
-                                    : "rgba(0, 0, 72, 0.7)",
-                        }}>
+                    </div>
+                    <div>
                         <Link href={"/bio"}>
                             <a onClick={() => setOpen(false)}>bio</a>
                         </Link>
@@ -88,14 +84,8 @@ function Layout({ setCategory }) {
                             target={"_blank"}>
                             instagram
                         </a>
-                    </motion.div>
-                    <motion.div
-                        style={{
-                            backgroundColor:
-                                router.pathname === "/"
-                                    ? "transparent"
-                                    : "rgba(0, 0, 72, 0.7)",
-                        }}>
+                    </div>
+                    <div>
                         <Link href={"/imprint"}>
                             <a onClick={() => setOpen(false)}>imprint</a>
                         </Link>
@@ -104,7 +94,7 @@ function Layout({ setCategory }) {
                                 data protection
                             </a>
                         </Link>
-                    </motion.div>
+                    </div>
                 </motion.nav>
             )}
         </>

@@ -1,5 +1,5 @@
 .container {
-    background-color: var(--project-bg-color);
+    background-color: #eef6ff;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     height: 100vh;

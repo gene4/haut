@@ -12,10 +12,6 @@
     font-weight: 700;
 }
 
-:root {
-    --project-bg-color: #d8e0f9;
-}
-
 html,
 body {
     padding: 0;
@@ -24,9 +20,9 @@ body {
     background: linear-gradient(355deg, #1f1051, #000000);
     background-size: 200% 300%;
 
-    -webkit-animation: AnimationName 1s ease infinite;
-    -moz-animation: AnimationName 1s ease infinite;
-    animation: AnimationName 1s ease infinite;
+    -webkit-animation: gradientAnimation 1s ease infinite;
+    -moz-animation: gradientAnimation 1s ease infinite;
+    animation: gradientAnimation 1s ease infinite;
     scroll-behavior: smooth;
     font-family: "Space-Mono", -apple-system, BlinkMacSystemFont, Segoe UI,
         Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -60,70 +56,57 @@ header a {
 nav {
     z-index: 5;
     position: fixed;
-    display: flex;
-    align-items: center;
-    top: 10rem;
-    left: 3rem;
-}
-
-nav div {
-    height: 300px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: fit-content;
+    padding: 2rem;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
     backdrop-filter: blur(5px);
-    border-radius: 100%;
+    border-radius: 15px;
     box-shadow: rgba(255, 255, 255, 0.3) 0px 12px 28px 0px,
         rgba(255, 255, 255, 0.2) 0px 2px 4px 0px,
         rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
-nav div:nth-child(2) {
-    width: 220px;
-    height: 220px;
-    margin-left: 5rem;
+nav div {
+    display: flex;
+    justify-content: center;
+    justify-content: start;
+    color: #d8e0f9;
+    flex-direction: column;
 }
 
-nav div:nth-child(2) a {
-    font-size: 1.1rem;
-}
-
-nav div:nth-child(3) {
-    width: 170px;
-    height: 170px;
-    margin-left: 5rem;
+nav div button {
+    font-family: inherit;
     font-size: 1rem;
 }
 
-nav div:nth-child(3) a {
-    font-size: 0.8rem;
+/* nav div:nth-child(1) {
+    margin: 1rem 0;
+} */
+
+nav div:nth-child(2) {
+    margin: 2rem 0;
 }
 
-nav div:nth-child(3) a:hover {
-    font-size: 0.9rem;
+nav div:nth-child(3) {
+    font-size: 0.6rem;
+    justify-content: space-between;
 }
 
 nav div button,
 nav div a {
-    padding: 5px;
     cursor: pointer;
-    font-size: 1.2rem;
+    width: max-content;
     background: none;
     border: none;
     color: #d8e0f9;
-    font-family: inherit;
+    padding: 0;
     transition: all 0.1s ease-in;
 }
 
-nav div button:hover,
-nav div a:hover {
-    font-size: 1.3rem;
-}
-
 nav a:hover,
-nav div:hover {
+nav button:hover {
     filter: sepia(20%);
 }
 
@@ -165,7 +148,7 @@ h1 {
     box-sizing: border-box;
 }
 
-@-webkit-keyframes AnimationName {
+@-webkit-keyframes gradientAnimation {
     0% {
         background-position: 83% 0%;
     }
@@ -176,7 +159,7 @@ h1 {
         background-position: 83% 0%;
     }
 }
-@-moz-keyframes AnimationName {
+@-moz-keyframes gradientAnimation {
     0% {
         background-position: 83% 0%;
     }
@@ -187,7 +170,7 @@ h1 {
         background-position: 83% 0%;
     }
 }
-@keyframes AnimationName {
+@keyframes gradientAnimation {
     0% {
         background-position: 83% 0%;
     }
@@ -196,43 +179,5 @@ h1 {
     }
     100% {
         background-position: 83% 0%;
-    }
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        width: auto;
-        top: 110px;
-    }
-
-    nav div:nth-child(1) {
-        width: 200px;
-        height: 200px;
-    }
-
-    nav div:nth-child(1) button {
-        font-size: 0.9rem !important;
-    }
-
-    nav div:nth-child(2) {
-        width: 140px;
-        height: 140px;
-        margin-top: 1rem;
-        font-size: 0.5rem !important;
-    }
-
-    nav div:nth-child(2) a {
-        font-size: 0.8rem !important;
-    }
-
-    nav div:nth-child(3) {
-        width: 120px;
-        height: 120px;
-        margin-top: 1rem;
-    }
-
-    nav div:nth-child(3) a {
-        font-size: 0.6rem !important;
     }
 }

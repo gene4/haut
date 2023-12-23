@@ -76,7 +76,7 @@
 
 .imprint {
     min-height: 100vh;
-    background-color: #eef6ff;
+    background-color: #eff5fc;
 }
 
 .bio_container {
@@ -84,7 +84,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #eef6ff;
+    background-color: #eff5fc;
 }
 
 .bio_content {

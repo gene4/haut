@@ -6,13 +6,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home({ main, projects, category }) {
     return (
-        <motion.div
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // exit={{ opacity: 0 }}
-        // transition={{ duration: 0.75, ease: "easeOut" }}
-        // style={{ position: "absolute", left: 0, top: 0 }}
-        >
+        <motion.div>
             <Head>
                 <title>HAUT</title>
                 <meta name="description" content="HAUT" />
@@ -22,16 +16,12 @@ export default function Home({ main, projects, category }) {
             <section className={styles.hero_container}>
                 <a rel="noreferrer" target={"_blank"} href={main[0].link}>
                     <video
-                        id="video"
                         playsInline
                         autoPlay
                         muted
                         loop
                         className={styles.video}>
-                        <source
-                            src={`https://drive.google.com/uc?export=download&id=${main[0].videoId}`}
-                            type="video/mp4"
-                        />
+                        <source src={main[0].videoURL} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </a>
@@ -90,7 +80,7 @@ export const getStaticProps = async () => {
     const queryMain = `*[_type == "main"]{
   _id,
   link,
-  videoId,
+  "videoURL": video.asset->url
 }`;
     const projects = await client.fetch(query);
     const main = await client.fetch(queryMain);

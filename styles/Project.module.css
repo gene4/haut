@@ -20,8 +20,10 @@
     padding: 0 2rem;
     overflow: hidden;
     overflow-x: hidden;
+    font-family: r;
     overflow-y: scroll;
     height: calc(72vh);
+    font-family: "Roboto";
 }
 
 .main div p {
@@ -33,7 +35,6 @@
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: scroll;
-    gap: 1.5rem;
 }
 
 .image {

@@ -19,7 +19,7 @@
 .image_container {
     width: 100%;
     height: 100%;
-    border: 5px solid #deedff;
+    /* border: 5px solid #deedff; */
     position: relative;
     overflow: hidden;
     z-index: 1;

@@ -2,8 +2,12 @@
 import PortableText from "react-portable-text";
 import { client } from "../../client";
 import styles from "../../styles/Project.module.css";
-import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import {
+    getVimeoId,
+    getYoutubeId,
+    getSpotifyId,
+} from "../../utils/get-video-id";
 
 const Project = ({ project }) => {
     return (
@@ -17,11 +21,61 @@ const Project = ({ project }) => {
                 />
             </main>
             <div className={styles.gallery}>
-                {project.youtubeID && (
-                    <LiteYouTubeEmbed
-                        id={project.youtubeID}
-                        title={project.title}
-                    />
+                {project.vimeoUrl && (
+                    <div className={styles.video_container}>
+                        <iframe
+                            src={`https://player.vimeo.com/video/${getVimeoId(
+                                project.vimeoUrl
+                            )}?h=aead483a85`}
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                )}
+                {project.youtubeUrl && (
+                    <div className={styles.video_container}>
+                        <iframe
+                            src={`https://www.youtube.com/embed/${getYoutubeId(
+                                project.youtubeUrl
+                            )}`}
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            allow="autoplay; fullscreen"
+                            allowfullscreen></iframe>
+                    </div>
+                )}
+                {project.soundcloudId && (
+                    <div className={styles.video_container}>
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            scrolling="no"
+                            frameborder="no"
+                            allow="autoplay"
+                            src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${soundcloudId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"`}></iframe>
+                    </div>
+                )}
+                {project.spotifyUrl && (
+                    <div
+                        style={{
+                            height: "400px",
+                            width: "100%",
+                            marginTop: "4px",
+                        }}>
+                        <iframe
+                            src={`https://open.spotify.com/embed/track/${getSpotifyId(
+                                project.spotifyUrl
+                            )}?utm_source=generator&theme=0`}
+                            width="100%"
+                            height="100%"
+                            frameBorder="0"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                    </div>
                 )}
                 {project.gallery &&
                     project.gallery.map(({ asset }) => {
@@ -64,7 +118,10 @@ export async function getStaticProps({ params }) {
     const query = `*[_type == "project" && slug.current == $slug][0]{
         _id,
         title,
-        youtubeID,
+        youtubeUrl,
+        vimeoUrl,
+        soundcloudId,
+        spotifyUrl,
         body,
         gallery[]{
             asset->{

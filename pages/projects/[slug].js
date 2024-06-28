@@ -2,7 +2,6 @@
 import PortableText from "react-portable-text";
 import { client } from "../../client";
 import styles from "../../styles/Project.module.css";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 import {
     getVimeoId,
     getYoutubeId,

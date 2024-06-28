@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { client, urlFor } from "../client";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import Image from "next/image";
 
 export default function Home({ main, projects, category }) {
     return (
@@ -49,15 +50,14 @@ export default function Home({ main, projects, category }) {
                                         }}
                                         className={styles.image_container}>
                                         <div className={styles.overlay} />
-                                        <div
+                                        <Image
                                             className={styles.photo}
-                                            style={{
-                                                backgroundImage: `url(${urlFor(
-                                                    project.mainImage
-                                                ).url()})`,
-                                            }}>
-                                            {" "}
-                                        </div>
+                                            src={urlFor(
+                                                project.mainImage
+                                            ).url()}
+                                            layout="fill"
+                                            priority
+                                        />
                                         <p>{project.title}</p>
                                     </motion.div>
                                 </Link>
@@ -69,7 +69,7 @@ export default function Home({ main, projects, category }) {
 }
 
 export const getStaticProps = async () => {
-    const query = `*[_type == "project"] | order(order asc) {
+    const query = `*[_type == "project"] | order(orderRank) {
   _id,
   title,
   mainImage,

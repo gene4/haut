@@ -103,7 +103,7 @@
     background-color: #deedff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     .grid {
         grid-template-columns: 1fr;
         grid-auto-rows: 50vh;

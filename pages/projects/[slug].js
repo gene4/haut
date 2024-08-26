@@ -89,6 +89,7 @@ const Project = ({ project }) => {
                     project.gallery.map(({ asset }) => {
                         return (
                             <BlurredImage
+                                key={asset.url}
                                 src={asset.url}
                                 lqipSrc={asset.metadata.lqip}
                                 alt={project.title}

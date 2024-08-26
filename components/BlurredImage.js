@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const BlurredImage = ({ src, lqipSrc, alt }) => {
     const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        // Check if the image is already cached
+        const img = new Image();
+        img.src = src;
+        if (img.complete) {
+            setIsLoaded(true);
+        }
+    }, [src]);
 
     return (
         <div style={{ position: "relative" }}>
@@ -18,7 +27,6 @@ const BlurredImage = ({ src, lqipSrc, alt }) => {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    // objectFit: "cover",
                 }}
             />
 
@@ -32,7 +40,6 @@ const BlurredImage = ({ src, lqipSrc, alt }) => {
                     opacity: isLoaded ? 1 : 0,
                     width: "100%",
                     height: "100%",
-                    // objectFit: "cover",
                 }}
             />
         </div>

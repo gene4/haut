@@ -67,22 +67,12 @@ const Project = ({ project }) => {
                 )}
 
                 {project.spotifyUrl && (
-                    <div
-                        style={{
-                            height: "400px",
-                            width: "100%",
-                            marginTop: "4px",
-                        }}>
-                        <iframe
-                            src={`https://open.spotify.com/embed/track/${getSpotifyId(
-                                project.spotifyUrl
-                            )}?utm_source=generator&theme=0`}
-                            width="100%"
-                            height="100%"
-                            frameBorder="0"
-                            allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"></iframe>
+                    <div className={styles.video_container}>
+                        <span
+                            dangerouslySetInnerHTML={{
+                                __html: project.spotifyUrl,
+                            }}
+                        />
                     </div>
                 )}
                 {project.gallery &&

@@ -22,7 +22,7 @@
     overflow-x: hidden;
     font-family: r;
     overflow-y: scroll;
-    height: calc(72vh);
+    max-height: calc(72vh);
     font-family: "Roboto";
 }
 

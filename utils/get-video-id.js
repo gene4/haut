@@ -12,9 +12,3 @@ export function getVimeoId(url) {
     const match = url.match(regex);
     return match ? match[1] : "";
 }
-
-export function getSpotifyId(url) {
-    const regex = /(?:spotify\.com\/track\/)([a-zA-Z0-9]+)/;
-    const match = url.match(regex);
-    return match ? match[1] : "";
-}

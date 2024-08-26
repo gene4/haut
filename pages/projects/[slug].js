@@ -2,18 +2,14 @@
 import PortableText from "react-portable-text";
 import { client } from "../../client";
 import styles from "../../styles/Project.module.css";
-import {
-    getVimeoId,
-    getYoutubeId,
-    getSpotifyId,
-} from "../../utils/get-video-id";
+import { getVimeoId, getYoutubeId } from "../../utils/get-video-id";
 import BlurredImage from "../../components/BlurredImage";
 
 const Project = ({ project }) => {
     return (
         <article className={styles.container}>
             <main className={styles.main}>
-                <h1>{project.title}</h1>
+                <h1 className={styles.title}>{project.title}</h1>
                 <PortableText
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
                     projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}

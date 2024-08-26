@@ -7,6 +7,7 @@ import {
     getYoutubeId,
     getSpotifyId,
 } from "../../utils/get-video-id";
+import BlurredImage from "../../components/BlurredImage";
 
 const Project = ({ project }) => {
     return (
@@ -46,17 +47,25 @@ const Project = ({ project }) => {
                             allowfullscreen></iframe>
                     </div>
                 )}
-                {project.soundcloudId && (
+                {project.appleMusicId && (
                     <div className={styles.video_container}>
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            scrolling="no"
-                            frameBorder="no"
-                            allow="autoplay"
-                            src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${soundcloudId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"`}></iframe>
+                        <span
+                            dangerouslySetInnerHTML={{
+                                __html: project.appleMusicId,
+                            }}
+                        />
                     </div>
                 )}
+                {project.soundcloudId && (
+                    <div className={styles.video_container}>
+                        <span
+                            dangerouslySetInnerHTML={{
+                                __html: project.soundcloudId,
+                            }}
+                        />
+                    </div>
+                )}
+
                 {project.spotifyUrl && (
                     <div
                         style={{
@@ -79,11 +88,10 @@ const Project = ({ project }) => {
                 {project.gallery &&
                     project.gallery.map(({ asset }) => {
                         return (
-                            <img
-                                key={asset.url}
-                                alt={project.title}
+                            <BlurredImage
                                 src={asset.url}
-                                className={styles.image}
+                                lqipSrc={asset.metadata.lqip}
+                                alt={project.title}
                             />
                         );
                     })}
@@ -121,11 +129,16 @@ export async function getStaticProps({ params }) {
         vimeoUrl,
         soundcloudId,
         spotifyUrl,
+        appleMusicId,
         body,
         gallery[]{
-            asset->{
-                url
+          asset->{
+            url,
+            metadata {
+              lqip,
+              blurhash
             }
+          }
         }
       }`;
 

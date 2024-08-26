@@ -23,6 +23,8 @@ function Layout({ setCategory }) {
             <header
                 style={{
                     color: router.pathname === "/" ? "#deedff" : "black",
+                    mixBlendMode:
+                        router.pathname === "/" ? "difference" : "normal",
                 }}>
                 <Hamburger
                     rounded

@@ -48,9 +48,7 @@ function Layout({ setCategory }) {
                     }}
                     style={{
                         backgroundColor:
-                            router.pathname === "/"
-                                ? "transparent"
-                                : "rgba(0, 0, 72, 0.7)",
+                          "rgba(7, 7, 8, 0.7)",
                     }}>
                     <div>
                         projects:
@@ -75,13 +73,19 @@ function Layout({ setCategory }) {
                         </Link>
                         <a href="mailto:hautonhaut@gmail.com">email</a>
                         <a
-                            href="https://soundcloud.com/xhautx"
+                            href="https://famaria.bandcamp.com/"
+                            rel="noreferrer"
+                            target={"_blank"}>
+                            bandcamp
+                        </a>
+                        <a
+                            href="https://soundcloud.com/famariamusic"
                             rel="noreferrer"
                             target={"_blank"}>
                             soundcloud
                         </a>
                         <a
-                            href="https://www.instagram.com/hautonhaut/"
+                            href="https://www.instagram.com/famaria.famaria/"
                             rel="noreferrer"
                             target={"_blank"}>
                             instagram
